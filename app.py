@@ -29,8 +29,21 @@ def index():
 def about():
   return render_template('about.html')
 
-@app.route('/contact')
+@app.route('/contact', methods = ['POST','GET'])
 def contact():
+    if request.method == "POST":
+        phone = request.form['phone']
+        email = request.form['email']
+        message = request.form['message']
+        try:
+            UID = login_session['user']['localId']
+            messages = {'phone': phone , 'email': email, 'message': message}
+            db.child("Users").child(UID).child("Messages").push(messages)
+            return redirect(url_for('index'))
+
+        except:
+            return render_template('contact.html')
+
     return render_template('contact.html')
 #Code goes above here
 @app.route('/sign_in', methods = ['POST','GET'])
@@ -44,7 +57,7 @@ def sign_in():
             UID = login_session['user']['localId']
             user = {'password':password, 'email':email}
             db.child("Users").child(UID).set(user)
-            return redirect(url_for('home'))
+            return redirect(url_for('index'))
         except:
             error = "Authentication failed  "
     
@@ -62,17 +75,16 @@ def sign_up():
             UID = login_session['user']['localId']
             user = {'name':name, 'name': name, 'email':email}
             db.child("Users").child(UID).set(user)
-            return redirect(url_for('home'))
+            return redirect(url_for('index'))
         except:
           error = "Authentication failed  "
     return render_template("signup.html")
 
 @app.route('/post', methods = ['GET', 'POST'])
 def post():
-    if request.method == 'POST':
-        post = db.child("posts").get().val()
-        return render_template('post.html', post = post)
-    return render_template('post.html')
+    UID = login_session['user']['localId']
+    post = db.child("Users").child(UID).child("posts").get().val()
+    return render_template('post.html', posts = post)
 
 @app.route('/discuss', methods = ['GET', "POST"])
 def discuss():
@@ -82,12 +94,14 @@ def discuss():
             upload = request.form['upload']
             about = request.form['about']
             contact = request.form['contact']
+            UID = login_session['user']['localId']
             post = {'name':name, 'upload': upload, 'about': about, 'contact': contact}
-            db.child("Post").push(post)
+            db.child("Users").child(UID).child("posts").push(post)
             return redirect(url_for('post'))
         except: 
             return render_template('discuss.html')
     return render_template('discuss.html')
     
+
 if __name__ == '__main__':
     app.run(debug=True)

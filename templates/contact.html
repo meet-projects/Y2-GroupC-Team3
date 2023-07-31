@@ -58,23 +58,16 @@
             <a href="">
               <i class="fa fa-phone" aria-hidden="true"></i>
               <span>
-                Call : +01 123455678990
+                Call : 050-6242734
               </span>
             </a>
             <a href="">
               <i class="fa fa-envelope" aria-hidden="true"></i>
               <span>
-                Email : demo@gmail.com
+                Email : nefashotjr@gmail.com
               </span>
             </a>
-            <a href="">
-              <i class="fa fa-map-marker" aria-hidden="true"></i>
-              <span>
-                Location
-              </span>
-            </a>
-          </div>
-          <div class="social_box">
+          </div>          <div class="social_box">
             <a href="">
               <i class="fa fa-facebook" aria-hidden="true"></i>
             </a>
@@ -94,7 +87,7 @@
         <div class="container-fluid">
           <nav class="navbar navbar-expand-lg custom_nav-container ">
             <a class="navbar-brand" href="index.html">
-              <img src="images/logo.png" alt="">
+              <img src="" alt="">
             </a>
             </a>
 
@@ -115,6 +108,18 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/sign_in"> Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/sign_up"> signup</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/discuss"> Post</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/discuss"> {{email}}</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/post"> See Posts</a>
                 </li>
                 <form class="form-inline">
                   <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
@@ -144,23 +149,23 @@
       <div class="row">
         <div class="col-lg-4 col-md-5 offset-md-1">
           <div class="form_container">
-            <form action="">
+            <form action="/contact" method="POST">
               <div>
                 <input type="text" placeholder="Your Name" />
               </div>
               <div>
-                <input type="text" placeholder="Phone Number" />
+                <input type="text" name="phone"  placeholder="Phone Number" />
               </div>
               <div>
-                <input type="email" placeholder="Email" />
+                <input type="email" name="email" placeholder="Email" />
               </div>
               <div>
-                <input type="text" class="message-box" placeholder="Message" />
+                <input type="text"  name="message" class="message-box" placeholder="Message" />
               </div>
               <div class="btn_box">
-                <button>
-                  SEND
-                </button>
+              <div class="form-group">
+                <input type="submit" name="submit" id="submit" class="form-submit" value="Send"/>
+              </div>
               </div>
             </form>
           </div>
@@ -180,129 +185,22 @@
   <!-- info section -->
   <section class="info_section ">
 
-    <div class="container">
-      <div class="contact_nav">
-        <a href="">
-          <i class="fa fa-phone" aria-hidden="true"></i>
-          <span>
-            Call : +01 123455678990
-          </span>
-        </a>
-        <a href="">
-          <i class="fa fa-envelope" aria-hidden="true"></i>
-          <span>
-            Email : demo@gmail.com
-          </span>
-        </a>
-        <a href="">
-          <i class="fa fa-map-marker" aria-hidden="true"></i>
-          <span>
-            Location
-          </span>
-        </a>
-      </div>
-
-      <div class="info_top ">
-        <div class="row info_main_row">
-          <div class="col-sm-6 col-md-4 col-lg-3">
-            <div class="info_links">
-              <h4>
-                QUICK LINKS
-              </h4>
-              <div class="info_links_menu">
-                <a class="" href="index.html">Home <span class="sr-only">(current)</span></a>
-                <a class="" href="service.html">Services</a>
-                <a class="" href="about.html"> About</a>
-                <a class="" href="project.html">Project</a>
-                <a class="" href="testimonial.html">Testimonial</a>
-                <a class="" href="contact.html">Contact Us</a>
-              </div>
-            </div>
+          <div class="contact_nav">
+            <a href="">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <span>
+                Call : 050-6242734
+              </span>
+            </a>
+            <a href="">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <span>
+                Email : nefashotjr@gmail.com
+              </span>
+            </a>
           </div>
-          <div class="col-sm-6 col-md-4 col-lg-3 mx-auto">
-            <div class="info_post">
-              <h5>
-                INSTAGRAM FEEDS
-              </h5>
-              <div class="post_box">
-                <div class="img-box">
-                  <img src="images/instagram.jpg" alt="">
-                </div>
-                <div class="img-box">
-                  <img src="images/instagram.jpg" alt="">
-                </div>
-                <div class="img-box">
-                  <img src="images/instagram.jpg" alt="">
-                </div>
-                <div class="img-box">
-                  <img src="images/instagram.jpg" alt="">
-                </div>
-                <div class="img-box">
-                  <img src="images/instagram.jpg" alt="">
-                </div>
-                <div class="img-box">
-                  <img src="images/instagram.jpg" alt="">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="info_form">
-              <h4>
-                SIGN UP TO OUR NEWSLETTER
-              </h4>
-              <form action="">
-                <input type="text" placeholder="Enter Your Email" />
-                <button type="submit">
-                  Subscribe
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="info_bottom">
-        <div class="row">
-          <div class="col-md-2">
-            <div class="info_logo">
-              <a href="">
-                <img src="images/logo2.png" alt="">
-              </a>
-            </div>
-          </div>
-          <div class="col-md-4 ml-auto">
-            <div class="social_box">
-              <a href="">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-linkedin" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-instagram" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-  <!-- end info_section -->
 
 
-  <!-- footer section -->
-  <footer class="footer_section">
-    <div class="container">
-      <p>
-        &copy; <span id="displayYear"></span> All Rights Reserved By
-        <a href="https://html.design/">Free Html Templates</a>
-      </p>
-    </div>
-  </footer>
   <!-- footer section -->
 
   <!-- jQery -->
