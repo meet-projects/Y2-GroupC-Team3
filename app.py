@@ -2,6 +2,20 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from flask import session as login_session
 import pyrebase
 
+config = {  
+'apiKey': "AIzaSyC8obPXaGjAEb2L9z3SQlsl0ayJLGcB8do",
+'authDomain': "nefashot-5fc6a.firebaseapp.com",
+'projectId': "nefashot-5fc6a",
+'storageBucket': "nefashot-5fc6a.appspot.com",
+'messagingSenderId': "509898866148",
+'appId': "1:509898866148:web:eed68f5761886822269bf1",
+'measurementId': "G-ZZ8X71R5J8",
+'databaseURL': 'https://nefashot-5fc6a-default-rtdb.europe-west1.firebasedatabase.app/'}
+
+firebase = pyrebase.initialize_app(config)
+auth = firebase.auth()
+db = firebase.database()
+
 app = Flask(__name__, template_folder='templates', static_folder='static')
 app.config['SECRET_KEY'] = 'super-secret-key'
 
@@ -52,6 +66,28 @@ def sign_up():
         except:
           error = "Authentication failed  "
     return render_template("signup.html")
+
+@app.route('/post', methods = ['GET', 'POST'])
+def post():
+    if request.method == 'POST':
+        post = db.child("posts").get().val()
+        return render_template('post.html', post = post)
+    return render_template('post.html')
+
+@app.route('/discuss', methods = ['GET', "POST"])
+def discuss():
+    if request.method == 'POST':
+        try:
+            name = request.form['name']
+            upload = request.form['upload']
+            about = request.form['about']
+            contact = request.form['contact']
+            post = {'name':name, 'upload': upload, 'about': about, 'contact': contact}
+            db.child("Post").push(post)
+            return redirect(url_for('post'))
+        except: 
+            return render_template('discuss.html')
+    return render_template('discuss.html')
     
 if __name__ == '__main__':
     app.run(debug=True)

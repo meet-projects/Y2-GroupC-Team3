@@ -1,0 +1,44 @@
+<style>
+	html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-align: center;
+}
+
+h1{
+	margin-top: 100;
+}
+	.input{
+		margin: 30px;
+	}
+
+.button{}
+
+
+</style>
+
+<h1>Post Your Art</h1>
+
+<p> Welcome to the discussion page where artists who has struggled with mental health can post their artwork. Other can view the artwork and get in contact with the artist and we hope this can spark some exciting discussions!</p>
+
+<form action ='/discuss' method = 'POST' enctype="multipart/form-data">
+	<label class="label"> Artists Name </label>
+	<br>
+	<input type = 'text' name = 'name' class="input"> </input>
+	<br>
+	<label class="label"> Upload Artwork </label>
+	<br>
+	<input type = 'text' name = 'upload'class="input"> </input>
+	<br>
+	<label class="label"> Write a Little About Yourself and Your Struggle with Mental Health </label>
+	<br>
+	<input type = 'text' name = 'about' class="input"> </input>
+	<br>
+	<label class="label"> Add Your Contacts to Spark Discussion! </label>
+	<br>
+	<input type = 'text' name = 'contact' class="input"> </input>
+	<br>
+	<input type = 'submit' name = 'submit' class="button"></input>
+</form>
