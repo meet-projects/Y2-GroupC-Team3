@@ -83,8 +83,10 @@ def sign_up():
 @app.route('/post', methods = ['GET', 'POST'])
 def post():
     UID = login_session['user']['localId']
-    post = db.child("Users").child(UID).child("posts").get().val()
-    return render_template('post.html', posts = post)
+    post = db.child("Users").get().val()
+
+
+    return render_template('post.html', post = post)
 
 @app.route('/discuss', methods = ['GET', "POST"])
 def discuss():
@@ -102,6 +104,8 @@ def discuss():
             return render_template('discuss.html')
     return render_template('discuss.html')
     
-
+@app.route('/events')
+def events():
+    return render_template('events.html')
 if __name__ == '__main__':
     app.run(debug=True)
