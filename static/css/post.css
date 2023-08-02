@@ -865,8 +865,7 @@ a:focus {
           align-items: center;
   margin-top: 45px;
 }
-
-.client_section .carousel-indicators li {
+/*.client_section .carousel-indicators li {
   background-color: #f07b26;
   width: 10px;
   height: 10px;
@@ -1222,7 +1221,7 @@ a:focus {
 }
 
 /* footer section*/
-.footer_section {
+/*.footer_section {
   position: relative;
   background-color: #ffffff;
   text-align: center;
@@ -1236,7 +1235,38 @@ a:focus {
 
 .footer_section p a {
   color: inherit;
-}
+}*/
 
 
 /*# sourceMappingURL=style.css.map */
+
+.header_bottom {
+  background-color: #FFA500; /* Orange color for header background */
+}
+
+.navbar-nav .nav-link {
+  color: #FFFFFF; /* White color for navigation links */
+}
+
+/* Change active link color */
+.navbar-nav .nav-item.active .nav-link {
+  color: #FFA500; /* Orange color for active link */
+}
+
+.nav_search-btn {
+  background-color: #FFA500; /* Orange color for the search button */
+  color: #FFFFFF; /* White text color for button */
+}
+
+/* Style for post names */
+.post-name {
+  color: #FFA500; /* Orange color for post names */
+  font-size: 18px; /* Adjust font size as needed */
+  font-weight: bold;
+}
+
+.navbarSupportedContent{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

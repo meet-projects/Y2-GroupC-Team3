@@ -1,3 +1,27 @@
+   <style>
+   	.posting{
+   		list-style-type: none;
+   	}
+
+   	.image{
+   		display: inline-block;
+   	}
+
+#pos{
+	margin-left: 50px;
+	font-family: sans-serif;
+}
+
+img{ 
+border-radius: 12px;
+border-width: 8px;
+border-style: double;
+border-color: black; 
+padding-right: 50px;
+width: 300px;}
+   </style>
+
+
     <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css" />
 	<link href="static/css/post.css" rel="stylesheet" />
   <!-- responsive style -->
@@ -19,7 +43,7 @@
                   <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" href="about.html"> About</a>
+                  <a class="nav-link" href="/about"> About</a>
                 </li>
 
                 <li class="nav-item">
@@ -51,9 +75,22 @@
           </nav>
         </div>
       </div>
+      <br>
+      <br>
+      <br>
+
     {%for pos in post%}
         {%for i in post[pos]["posts"]%}
-            {{post[pos]["posts"][i]["name"]}}>\<br>
-            <img src = '{{post[pos]["posts"][i]["upload"]}}' width="200px"><br>
+    <div class = "pos">
+    	<ul class = 'posting'>
+            <li class = 'image'><img src = '{{post[pos]["posts"][i]["upload"]}}' width="200px"></li>
+            <div class = 'image'>
+            	<li><h3>{{post[pos]["posts"][i]["name"]}}</h3></li>
+            	<li><h3>{{post[pos]["posts"][i]["about"]}}</h3></li>
+            </div>
+    	</ul>
+    	---------------------------------------------------------------------------------------------------------------------------------------
+    </div>
+    <br>
         {% endfor %}
     {% endfor %}
